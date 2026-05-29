@@ -1,4 +1,5 @@
 using UnityEngine;
+using StarterAssets;
 
 public class bigMapManager : MonoBehaviour
 {
@@ -22,7 +23,8 @@ public class bigMapManager : MonoBehaviour
     private Quaternion fixedRotation;
     private Vector3 cameraOffset;
     private bool wasCameraChild = false;
-    private MonoBehaviour playerControllerScript;
+    private ThirdPersonController playerController;
+    private StarterAssetsInputs starterInputs;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,10 +50,11 @@ public class bigMapManager : MonoBehaviour
             bigMapCamera.transform.SetParent(null);
         }
         
-        // PlayerController Script finden
+        // PlayerController und Input Script finden
         if (PlayerController != null)
         {
-            playerControllerScript = PlayerController.GetComponent<MonoBehaviour>();
+            playerController = PlayerController.GetComponent<ThirdPersonController>();
+            starterInputs = PlayerController.GetComponent<StarterAssetsInputs>();
         }
     }
 
@@ -92,10 +95,16 @@ public class bigMapManager : MonoBehaviour
         
         if (isBigMapActive)
         {
-            // Spieler-Steuerung deaktivieren
-            if (playerControllerScript != null)
+            // Spieler-Steuerung deaktivieren (Controller + Input) und Eingaben zurücksetzen
+            if (playerController != null)
             {
-                playerControllerScript.enabled = false;
+                playerController.enabled = false;
+            }
+            if (starterInputs != null)
+            {
+                // Sicherstellen, dass ein gedrückter Sprung nicht hängen bleibt
+                starterInputs.jump = false;
+                starterInputs.enabled = false;
             }
             
             Cursor.visible = true;
@@ -103,10 +112,14 @@ public class bigMapManager : MonoBehaviour
         }
         else
         {
-            // Spieler-Steuerung wieder aktivieren
-            if (playerControllerScript != null)
+            // Spieler-Steuerung wieder aktivieren (Controller + Input)
+            if (playerController != null)
             {
-                playerControllerScript.enabled = true;
+                playerController.enabled = true;
+            }
+            if (starterInputs != null)
+            {
+                starterInputs.enabled = true;
             }
             
             Cursor.visible = false;

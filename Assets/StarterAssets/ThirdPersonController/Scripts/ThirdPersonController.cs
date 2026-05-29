@@ -310,6 +310,8 @@ namespace StarterAssets
                     {
                         _animator.SetBool(_animIDJump, true);
                     }
+                    // consume the jump input so holding the button doesn't cause repeated jumps
+                    _input.jump = false;
                 }
 
                 // jump timeout

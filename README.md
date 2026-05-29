@@ -18,4 +18,4 @@ Technische Hinweise:
 # Weitere Informationen:
 - Siehe `QuickStart.md` im Projektstamm für eine kurze Anleitung zum Öffnen des Projekts, Einfügen der Minimap in eine Szene und Fehlerbehebung.
 
-# Ende
+### Ende

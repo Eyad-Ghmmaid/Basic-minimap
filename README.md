@@ -1,5 +1,5 @@
 # Basic minimap
-Projektbeschreibung
+## Projektbeschreibung
 
 Projekt: Basic Minimap
 
@@ -15,7 +15,7 @@ Technische Hinweise:
 - Zielplattform: Unity (siehe verwendete Unity-Version im Projekt). Die C#-Skripte sind kompatibel mit `.NET 4.x` API Compatibility Level (Projekt verwendet .NET Framework 4.7.1 Zielsetzung für Bibliotheken).
 - Asset-Ordner: Suche nach Prefabs unter `Assets/Prefabs` oder `Assets/UI`.
 
-Weitere Informationen:
+# Weitere Informationen:
 - Siehe `QuickStart.md` im Projektstamm für eine kurze Anleitung zum Öffnen des Projekts, Einfügen der Minimap in eine Szene und Fehlerbehebung.
 
 # Ende
